@@ -1,5 +1,6 @@
 import utils.DomainConstraint;
 
+
 /**
  * @overview Person who have a phone
  * @attributes 
@@ -22,5 +23,30 @@ public class Person{
 
     @DomainConstraint(type ="MobilePhone", mutable = true, optional = true)
     private MobilePhone phone;
+/**
+ * @effects <pre>
+ *      if name is valid 
+ *          then set this.name to name
+ *          return true
+ *      else
+ *          return false
+ * <pre>
+ */
+    @DOpt(type =OptType.Mutator) @AttrRef("name")
+    public Boolean setName(String name){
+        if(name.length() <= 30){
+            this.name = name;
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
 
+/**
+ * 
+ */
+    public String greeting(){
+        return "thank you"+this.name+ " for choosing us";
+    }  
 }
