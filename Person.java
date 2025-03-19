@@ -1,4 +1,7 @@
 import utils.DomainConstraint;
+import utils.AttrRef;
+import utils.DOpt;
+import utils.OptType;
 
 
 /**
@@ -44,9 +47,24 @@ public class Person{
     }
 
 /**
+ * @effect  <pre>
+ *      return greeting sentence to the customer
+ * 
  * 
  */
+    @DOpt(type =OptType.Observer) @AttrRef("name")
     public String greeting(){
-        return "thank you"+this.name+ " for choosing us";
-    }  
+        return "thank you "+this.name+ " for choosing us";
+    }
+
+
+
+    
+    public static void main(String[] args){
+
+        Person person1 = new Person();
+        person1.setName("hung");
+        System.out.print(person1.greeting());
+}  
 }
+

@@ -5,7 +5,7 @@ import utils.DomainConstraint;
  * @attributes
  *      manName     String
  *      model       String
- *      color       Char
+ *      color       Color
  *      year        Integer int 
  *      guaranted   Boolean 
  *   
@@ -19,6 +19,8 @@ import utils.DomainConstraint;
  *       mutable(guaranted) = true /\ optional(guaranted) = false 
  */
 
+
+
 public class MobilePhone{
     @DomainConstraint(type ="String",mutable = true, optional = false, length = 30)
     private String manName;
@@ -26,8 +28,8 @@ public class MobilePhone{
     @DomainConstraint(type = "String",mutable = false, optional = false, length = 30)
     private String model;
 
-    @DomainConstraint(type= "Char",mutable = false, optional = false)
-    private char color;
+    @DomainConstraint(type= "Color",mutable = false, optional = false)
+    private Color color;
 
     @DomainConstraint(type ="Integer", mutable = false, optional = false, min = 1973)
     private int year;
