@@ -49,8 +49,7 @@ public class Person{
 /**
  * @effect  <pre>
  *      return greeting sentence to the customer
- * 
- * 
+ * <pre>
  */
     @DOpt(type =OptType.Observer) @AttrRef("name")
     public String greeting(){
