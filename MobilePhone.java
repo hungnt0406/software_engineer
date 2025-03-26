@@ -37,3 +37,24 @@ public class MobilePhone{
     @DomainConstraint(type="Boolean", mutable = true, optional = false)
     private  Boolean guaranted;
 }
+
+/**
+ * @effect
+ *      if model is valid 
+ *          then set this.model to model
+ *          return true 
+ *      else 
+ *          return false
+ * 
+ */
+@DOpt(OptType.Mutator) @AttrRef("model")
+public boolean setModel(String model){
+    if(model.matches("M-[A-Z]{3}-[0-9]{3}")){
+        this.model = model;
+        return true;
+    }
+    else{
+        throw new IllegalArgumentException("invalid model format");
+        return false;
+    }
+}
